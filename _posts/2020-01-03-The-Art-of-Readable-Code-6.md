@@ -32,5 +32,15 @@ categories: 책 요약
     // 데이터가 충분히 작으면, 이를 캐시에 넣어라.
     ```
 
+## 신중하게 선택된 입/출력 예로 주석을 서술하라
+- 코너케이스를 설명해주는 입/출력 예를 사용하라
+  ```c++
+  // good
+
+  // 입력된 'src'의 'chars'라는 접두사와 접미사를 제거한다.
+  String Strip(String src, String chars) { ... }
+  ```
+
+
 ## References
 더스틴 보즈웰, 트레버 파우커. [_읽기 좋은 코드가 좋은 코드다._](http://www.yes24.com/Product/Goods/6692314?scode=032&OzSrank=1) n.p.: 한빛미디어(주), 2012.
