@@ -10,6 +10,18 @@ categories: 책 요약
   3. [값이 한 번만 할당되는 변수를 선호하자.](#값이-한-번만-할당되는-변수를-선호하라.)
 
 ## 방해되는 변수를 제거하자.
+```javascript
+// bad
+now = datetime.datetime.now()
+root_message.last_view_time = now
+
+// good
+root_message.last_view_time = datetime.datetime.now()
+```
+### now 변수가 필요없는 이유
+1. 복잡한 표현을 잘게 나누지 않는다.
+2. 명확성에 도움이 되지 않는다.
+3. 한 번만 사용되어 중복된 코드를 압축하지 않는다.
 
 ## 각 변수의 범위를 최대한 작게 줄이자.
 
