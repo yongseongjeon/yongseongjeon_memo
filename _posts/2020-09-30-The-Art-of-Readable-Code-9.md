@@ -24,9 +24,35 @@ root_message.last_view_time = datetime.datetime.now()
 3. 한 번만 사용되어 중복된 코드를 압축하지 않는다.
 
 ## 각 변수의 범위를 최대한 작게 줄이자.
+```javascript
+// bad
+submitted = false;
+
+var submit_form = function (form_name) {
+  if (submitted) {
+    return; // 폼을 두 번 제출하지 말라.
+  }
+  ...
+  submitted = true;
+}
+
+// good
+var submit_form = (function () {
+  var submitted = false; // 주의: 아래에 있는 함수만 접근할 수 있다.
+
+  return function (form_name) {
+    if (submitted) {
+      return; // 폼을 두 번 제출하지 말라.
+    }
+    ...
+    submitted = true;
+  }
+}());
+```
+- 전역변수를 클로저 내부에 집어넣었다.
 
 ## 값이 한 번만 할당되는 변수를 선호하자.
-
+- 값이 한 번만 할당되는 const, final 등의 변수는 훨씬 이해하기 쉽다.
 
 ## References
 더스틴 보즈웰, 트레버 파우커. [_읽기 좋은 코드가 좋은 코드다._](http://www.yes24.com/Product/Goods/6692314?scode=032&OzSrank=1) n.p.: 한빛미디어(주), 2012.
